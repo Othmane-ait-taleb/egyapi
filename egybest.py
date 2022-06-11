@@ -7,6 +7,8 @@ import math
 import re
 
 
+
+
 class EgyBest:
     def __init__(self, mirrorURL=None):
         self.baseURL = mirrorURL or "https://egy.best"

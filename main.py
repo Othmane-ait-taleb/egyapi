@@ -4,6 +4,7 @@ from waitress import serve
 import os
 import copy
 import json,time
+import sys
 
 eb = EgyBest("https://egy.best")
 
@@ -45,7 +46,7 @@ def requestSpesficSeason(show,s,anime):
 
         for src in downloadSources:
             data["epsds"].append({"EpsdName":[episodes[j].title],"quality":str(src.quality),"link":src.link})
-            #print(str(src.quality) + ' p ' + src.link)
+            print(str(src.quality) + ' p ' + src.link)
     print(data)
     print(json.dumps(data))
     return data
@@ -94,9 +95,13 @@ def home_page():
     downloadSources = result.getDownloadSources()
     data={}
     data["link__quality"]=[]
-    for src in downloadSources:
-        data["link__quality"].append({"quality":str(src.quality) + ' p ',"link":src.link})
-    return json.dumps(data)
+    try:
+        for src in downloadSources:
+            print(str(src.quality))
+            data["link__quality"].append({"quality":str(src.quality) + ' p ',"link":src.link})
+        return json.dumps(data)
+    except:
+        print("Oops!", sys.exc_info()[0], "occurred.")
 
 
 if __name__ == "__main__":
