@@ -95,6 +95,7 @@ def home_page():
     data={}
     data["link__quality"]=[]
     for src in downloadSources:
+        print(str(src.quality))
         data["link__quality"].append({"quality":str(src.quality) + ' p ',"link":src.link})
     return json.dumps(data)
 
