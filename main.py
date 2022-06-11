@@ -23,13 +23,7 @@ def requestSeasons(show):
             downloadSources = episodes[j].getDownloadSources()
 
             for src in downloadSources:
-		print("in downlo lloop")
-		data["epsds"].append({"EpsdName":[episodes[j].title],"quality":str(src.quality),"link":src.link})
-		print(str(src.quality) + ' p '+src.link)
-		
-		            
-
-             
+                print(str(src.quality) + ' p '+src.link)
 
 def requestSpesficSeason(show,s,anime):
     print("you are ther ")
@@ -50,8 +44,9 @@ def requestSpesficSeason(show,s,anime):
         downloadSources = episodes[j].getDownloadSources()
 
         for src in downloadSources:
-            data["epsds"].append({"EpsdName":[episodes[j].title],"quality":str(src.quality),"link":src.link})
-            print(str(src.quality) + ' p ' + src.link)
+		print("you are in dowlnload")
+            	data["epsds"].append({"EpsdName":[episodes[j].title],"quality":str(src.quality),"link":src.link})
+            	print(str(src.quality) + ' p ' + src.link)
     print(data)
     print(json.dumps(data))
     return data
