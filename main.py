@@ -95,7 +95,6 @@ def home_page():
     downloadSources = result.getDownloadSources()
     data={}
     data["link__quality"]=[]
-<<<<<<< HEAD
     try:
         for src in downloadSources:
             print(str(src.quality))
@@ -103,12 +102,7 @@ def home_page():
         return json.dumps(data)
     except:
         print("Oops!", sys.exc_info()[0], "occurred.")
-=======
-    for src in downloadSources:
-        print(str(src.quality))
-        data["link__quality"].append({"quality":str(src.quality) + ' p ',"link":src.link})
-    return json.dumps(data)
->>>>>>> 1be266fb183ca750c8d032445df95f8617d3346a
+
 
 
 if __name__ == "__main__":
